@@ -1,23 +1,22 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  new: "New"
+  edit: "Edit"
+  email: "Email"
+  sign_up: "Sign Up"
+  need_current_password: "We need your current password to confirm your changes"
+  user_created: "User Created!"
+  user_deleted: "User Deleted!"
+  edit_user: "Edit User"
+  new_user: "New User"
+  all_users: "All User"
+  edit: "Edit"
+  delete: "Delete"
+  login: "Log In"
+  logout: "Log Out"
+  confirm_notification: "Are You Sure?"
+  home: "Home"
+  error: "Error"
+  submit: "Submit"
+  welcome_to_app: "Welcome To Book Review System!"
+  framgia: "© 2015 Framgia, Inc. All rights reserved."
+  app_name: "Book Review System"
