@@ -1,0 +1,10 @@
+actions: 
+  - read 
+  - mark 
+  - like 
+  - unlike 
+  - write 
+  - comment 
+  - follow 
+  - unfollow 
+  - request
