@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
                        source: :followed
   has_many :followers, through: :passive_relationships,
                        source: :follower
-  
+
   enum role: [:normal, :admin]
 end
