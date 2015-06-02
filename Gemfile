@@ -15,6 +15,7 @@ gem "coffee-rails"
 gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder"
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 group :development do
   gem "factory_girl_rails"
