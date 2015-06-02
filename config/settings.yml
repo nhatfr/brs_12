@@ -1,13 +1,14 @@
-actions: 
-  - read 
-  - mark 
-  - like 
-  - unlike 
-  - write 
-  - comment 
-  - follow 
-  - unfollow 
+actions:
+  - read
+  - mark
+  - like
+  - unlike
+  - write
+  - comment
+  - follow
+  - unfollow
   - request
 
 paginate:
   per_page: 20
+  books_per_page_size: 10

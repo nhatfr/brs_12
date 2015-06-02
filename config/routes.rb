@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :destroy]
   resources :categories, only: [:index, :show]
+  resources :books, except: [:new, :create, :destroy]
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :categories
+    resources :books
     root to: "users#index"
   end
 

@@ -1,0 +1,25 @@
+<div class="container">
+
+  <h1><%= t :all_books %></h1>
+
+  <div class="well">
+    <%= link_to t(:new_book), new_admin_book_path, remote: true, class: "btn btn-primary" %>
+  </div>
+
+  <%= will_paginate %>
+  <table id class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th><%= t :title %></th>
+      <th><%= t :author %></th>
+      <th><%= t :description %></th>
+      <th><%= t :actions %></th>
+    </tr>
+    </thead>
+    <tbody id="books">
+      <%= render @books %>
+    </tbody>
+  </table>
+
+  <%= render "dialog" %>
+</div>

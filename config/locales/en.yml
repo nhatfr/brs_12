@@ -20,6 +20,18 @@ en:
   welcome_to_app: "Welcome To Book Review System!"
   framgia: "© 2015 Framgia, Inc. All rights reserved."
   app_name: "Book Review System"
+  all_books: "All Books"
+  new_book: "New Book"
+  update_book: "Update book"
+  create: "Create"
+  update: "Update"
+  title: "Title"
+  author: "Author"
+  description: "Description"
+  actions: "Actions"
+  success: "Successfully!!"
+  fail: "Unsuccessfully!!"
+  
 category:
   notice:
     success:

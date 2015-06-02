@@ -9,7 +9,6 @@ class CreateBooks < ActiveRecord::Migration
       t.string :ISBN
       t.string :description
       t.string :picture
-
       t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
