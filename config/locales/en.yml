@@ -20,3 +20,21 @@ en:
   welcome_to_app: "Welcome To Book Review System!"
   framgia: "© 2015 Framgia, Inc. All rights reserved."
   app_name: "Book Review System"
+category:
+  notice:
+    success:
+      create: "Category created"
+      update: "Category updated"
+      delete: "Category deleted"
+    danger:
+      fail: "ERROR, check it again"
+  link_to:
+    create_new_category: "Create new category"
+    link_edit: "Edit"
+    link_delete: "Delete"
+  title:
+    category_name: "Title"
+    action: "Action"
+    categories: "All Categories"
+    new_category: "New Category"
+    edit_category: "Edit"

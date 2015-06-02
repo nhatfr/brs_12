@@ -8,3 +8,6 @@ actions:
   - follow 
   - unfollow 
   - request
+
+paginate:
+  per_page: 20

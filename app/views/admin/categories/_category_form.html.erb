@@ -1,0 +1,9 @@
+<%= form_for [:admin, @category] do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </p>
+  <p>
+    <%= f.submit t(:submit), class: "btn btn-primary" %>
+  </p>
+<% end %>  
