@@ -1,0 +1,7 @@
+<ul>
+  <h3 class="content"><%= review.content %></h3>
+  <h4><%= review.user.email %></h4>
+  <h4><%= review.book.title %></h4>
+  <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
+  <hr/>
+</ul>

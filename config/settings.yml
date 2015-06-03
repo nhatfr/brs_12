@@ -12,3 +12,4 @@ actions:
 paginate:
   per_page: 20
   books_per_page_size: 10
+  reviews_per_page: 20

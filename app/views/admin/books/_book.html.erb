@@ -8,7 +8,7 @@
     <%= image_tag book.picture.url if book.picture? %>
   </td>
   <td>
-    <%= link_to t(:details_link), book_path(book) %>
+    <%= link_to t(:details_link), admin_book_path(book) %>
 
     | <%= link_to t(:edit_link), edit_admin_book_path(book), remote: true %>
 
