@@ -50,3 +50,10 @@ category:
     categories: "All Categories"
     new_category: "New Category"
     edit_category: "Edit"
+users:
+  notice:
+    success: "User deleted"
+    fail: "User DIDN'T deleted"
+  id: "ID"
+  email: "email"
+  action: "Action"

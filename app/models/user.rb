@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reviews, dependent: :destroy
-  has_many :book_users, dependent: :destroy
+  has_many :perusals, dependent: :destroy
   has_many :activities, dependent: :destroy
-  has_many :like_unlikes, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
