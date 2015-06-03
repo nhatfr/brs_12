@@ -7,3 +7,6 @@ FactoryGirl.create :user, email: "khanhkhanh@gmail.com"
 
 puts "Create categories"
 20.times {FactoryGirl.create :category}
+
+puts "Create book"
+100.times {FactoryGirl.create :book}

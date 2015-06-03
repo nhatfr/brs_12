@@ -8,6 +8,7 @@ class Ability
     elsif user.normal?
       can [:create, :update, :destroy], [Review, Comment, Request, Activity], user_id: user.id
       can :update, User, id: user.id
+      can :read, Book
     end
   end
 end

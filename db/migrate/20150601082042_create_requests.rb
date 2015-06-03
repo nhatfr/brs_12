@@ -5,7 +5,7 @@ class CreateRequests < ActiveRecord::Migration
       t.string :description
       t.string :author
       t.string :ISBN
-      
+
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
