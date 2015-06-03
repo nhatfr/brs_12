@@ -62,3 +62,6 @@ users:
   id: "ID"
   email: "email"
   action: "Action"
+follow_user:
+  following: "Following"
+  followers: "Followers"

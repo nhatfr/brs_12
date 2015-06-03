@@ -1,2 +1,41 @@
 <% provide :title, @user.email %>
-<%= render @user %>
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th><%= t :id %></th>
+      <th><%= t :email %></th>
+      <th><%= t :action %></th>
+    </tr>
+    <tr>
+      <%= render @user %>
+    </tr>
+  </table>
+</div>
+<div>
+  <div class="col-md-6">
+    <table class="table table-bordered">
+      <tr>
+        <th><%= @user.following.count %> <%= t :following %></th>
+      </tr>
+      <% @user.following.each do |following| %>
+        <tr>
+          <td>
+            <%= link_to following.email, user_path(following) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-bordered">
+      <tr>
+        <th><%= @user.followers.count %> <%= t :followers %></th>
+      </tr>
+      <% @user.followers.each do |follower| %>
+        <tr>
+          <td><%= link_to follower.email, user_path(follower) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
