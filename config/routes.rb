@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root to: "static_pages#home"
 
-  resources :users, except: [:index, :destroy]
+  resources :users, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :books, except: [:new, :create, :destroy]
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users
+    resources :users, only: [:index, :show, :destroy]
     resources :categories
     resources :books
     root to: "users#index"
