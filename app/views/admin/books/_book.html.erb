@@ -3,6 +3,8 @@
   <td><%= book.author %></td>
   <td>
     <%= book.description %>
+  </td>
+  <td>
     <%= image_tag book.picture.url if book.picture? %>
   </td>
   <td>
