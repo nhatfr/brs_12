@@ -1,0 +1,8 @@
+<tr id="book_<%= book.id %>">
+  <td><%= book.title %></td>
+  <td><%= book.author %></td>
+  <td><%= book.description %></td>
+  <td>
+    <%= link_to t(:details_link), book_path(book) %>
+  </td>
+</tr>
