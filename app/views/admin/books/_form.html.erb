@@ -1,4 +1,4 @@
-<%= form_for [:admin, @book], remote: true, html: {role: "form"} do |f| %>
+<%= form_for [:admin, @book], html: {multipart: true, role: "form"}, remote: true do |f| %>
   <div id="error_explanation" class="bg-danger text-danger">
   </div>
 
@@ -23,6 +23,10 @@
       <div class="form-group">
         <%= f.label :description %>
         <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
       </div>
 
       <div class="form-group">

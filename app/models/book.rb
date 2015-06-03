@@ -5,4 +5,6 @@ class Book < ActiveRecord::Base
   has_many :perusals, dependent: :destroy
 
   scope :order_by_created_at, -> {order created_at: :DESC}
+
+  mount_uploader :picture, PictureUploader
 end
