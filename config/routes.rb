@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :books, except: [:new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"

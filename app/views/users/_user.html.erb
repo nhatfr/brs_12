@@ -1,4 +1,11 @@
 <tr>
   <td><%= user.id %></td>
   <td><%= link_to user.email, user_path(user.id) %></td>
+  <td id="user-<%= user.id %>">
+    <% if user.followers.include? current_user %>
+      <%= render "unfollow", user: user %>
+    <% else %>
+      <%= render "follow", user: user %>
+    <% end %>
+  </td>
 </tr>
