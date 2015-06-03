@@ -14,6 +14,7 @@ class Admin::BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         format.json {head :no_content}
+        format.html {redirect_to admin_books_url}
         format.js
       else
         format.json {render json: @book.errors.full_messages,
@@ -29,6 +30,7 @@ class Admin::BooksController < ApplicationController
     respond_to do |format|
       if @book.update! book_params
         format.json {head :no_content}
+        format.html {redirect_to admin_books_url}
         format.js
       else
         format.json {render json: @book.errors.full_messages,
@@ -41,13 +43,13 @@ class Admin::BooksController < ApplicationController
     @book.destroy
     respond_to do |format|
       format.js
-      format.html {redirect_to books_url}
+      format.html {redirect_to admin_books_url}
       format.json {head :no_content}
     end
   end
 
   private
   def book_params
-    params.require(:book).permit :title, :author, :description
+    params.require(:book).permit :title, :author, :description, :picture
   end
 end

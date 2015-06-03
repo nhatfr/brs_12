@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
 gem "rails", "4.2.1"
+gem "fog"
+gem "mini_magick"
+gem "carrierwave"
 gem "devise"
 gem "cancancan"
 gem "ransack"
@@ -15,7 +18,6 @@ gem "coffee-rails"
 gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder"
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 group :development do
   gem "factory_girl_rails"
