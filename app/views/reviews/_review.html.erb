@@ -7,5 +7,22 @@
     <%= link_to t(:delete), admin_book_review_path(review.book.id, review.id),
         method: :delete, data: {confirm: t(:confirm)} %>
   <% end %>
+  <ul>
+    <% review.comments.each do |comment| %>
+      <h3><%= comment.content %></h3>
+      <h4><%= comment.user.email %></h4>
+      <h4 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h4>
+      <% if comment.user == current_user %>
+        Delete
+      <% end %>
+    <% end %>
+  </ul>
+  <% if user_signed_in? %>
+    <p>
+      <section class="comment_form">
+        <%= render "shared/comment_form", review: review %>
+      </section>
+    </p>
+  <% end %>
   <hr/>
 </ul>
