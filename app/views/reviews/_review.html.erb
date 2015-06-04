@@ -3,5 +3,9 @@
   <h4><%= review.user.email %></h4>
   <h4><%= review.book.title %></h4>
   <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
+  <% if review.user == current_user %>
+    <%= link_to t(:delete), admin_book_review_path(review.book.id, review.id),
+        method: :delete, data: {confirm: t(:confirm)} %>
+  <% end %>
   <hr/>
 </ul>

@@ -13,7 +13,7 @@ en:
   delete: "Delete"
   login: "Log In"
   logout: "Log Out"
-  confirm_notification: "Are You Sure?"
+  confirm: "Are You Sure?"
   home: "Home"
   error: "Error"
   submit: "Submit"
