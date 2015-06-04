@@ -3,4 +3,10 @@ class Activity < ActiveRecord::Base
   has_many :likes, dependent: :destroy
 
   enum action: Settings.actions
+  
+  def target
+    if self.follow? || self.unfollow?
+      @user = User.find target_id
+    end
+  end
 end

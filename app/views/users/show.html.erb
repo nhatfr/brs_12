@@ -12,7 +12,7 @@
   </table>
 </div>
 <div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <table class="table table-bordered">
       <tr>
         <th><%= @user.following.count %> <%= t :following %></th>
@@ -26,7 +26,7 @@
       <% end %>
     </table>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <table class="table table-bordered">
       <tr>
         <th><%= @user.followers.count %> <%= t :followers %></th>
@@ -36,6 +36,15 @@
           <td><%= link_to follower.email, user_path(follower) %></td>
         </tr>
       <% end %>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <table class="table table-bordered">
+      <tr>
+        <th><%= t :activities %></th>
+        <th><%= t :target%></th>
+      </tr>
+      <%= render @user.activities %>
     </table>
   </div>
 </div>
