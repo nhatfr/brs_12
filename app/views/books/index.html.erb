@@ -1,7 +1,9 @@
 <div class="container">
-
-  <h1><%= t :all_books %></h1>
-
+  <table>
+    <%= render "search" %>
+  </table>
+</div>
+<div>
   <%= will_paginate %>
   <table id class="table table-bordered table-striped">
     <thead>
