@@ -1,0 +1,17 @@
+<%= search_form_for @book, as: :book_search do |f| %>
+  <tr>
+    <td>
+      <%= f.label t(:title_contains) %>
+      <%= f.search_field :title_cont %>
+    </td>
+    <td>
+      <%= f.label t(:author_contains) %>
+      <%= f.search_field :author_cont %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.submit t(:search), class: "btn btn-primary" %>
+    </td>
+  </tr>
+<% end %>

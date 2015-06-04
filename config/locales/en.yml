@@ -36,7 +36,9 @@ en:
   all_reviews: "All Reviews And Comments"
   new_review: "New Review"
   post: "Post!"
-
+  search: "Search"
+  author_contains: "Author contains"
+  title_contains: "Title contains"
 category:
   notice:
     success:
