@@ -8,7 +8,6 @@ FactoryGirl.create :user, email: "khanhkhanh@gmail.com"
 puts "Create categories"
 20.times {FactoryGirl.create :category}
 
-
 puts "Create books"
 20.times {FactoryGirl.create :book}
 
@@ -19,9 +18,6 @@ books = Book.order(:created_at).all
   content = Faker::Lorem.sentence(3)
   users.each {|user| user.reviews.create!(content: content, book_id: n)}
 end
-
-puts "Create book"
-100.times {FactoryGirl.create :book}
 
 puts "Create Relationship"
 30.times {FactoryGirl.create :relationship}

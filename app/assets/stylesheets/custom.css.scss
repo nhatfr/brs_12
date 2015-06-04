@@ -212,3 +212,24 @@ span.picture {
     border: 0;
   }
 }
+
+/* favorite/unfavorite buttons */
+
+.favorite {
+  width: 100px;
+  background-color: GreenYellow;
+  color: Navy;
+}
+
+.unfavorite {
+  width: 100px;
+  background-color: SlateGray;
+}
+
+.header_cell {
+  text-align: center;
+}
+
+thead {
+  height: 40px;
+}
