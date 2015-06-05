@@ -29,4 +29,19 @@ class User < ActiveRecord::Base
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def favorite book
+    perusals.create book_id: book.id
+  end
+
+  def unfavorite book
+    Perusal.find_by(user: self, book: book).destroy
+  end
+
+  def favorite? book
+    Perusal.where(user: self, book: book).count > 0
+  end
+
+  def find_perusal book
+    Perusal.find_by user: self, book: book
+  end
 end

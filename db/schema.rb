@@ -68,8 +68,6 @@ ActiveRecord::Schema.define(version: 20150601095539) do
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "perusals", force: :cascade do |t|
-    t.string   "status"
-    t.boolean  "favorite"
     t.integer  "book_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false

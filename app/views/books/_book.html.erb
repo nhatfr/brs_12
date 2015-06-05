@@ -1,8 +1,25 @@
-<tr id="book_<%= book.id %>">
-  <td><%= book.title %></td>
-  <td><%= book.author %></td>
-  <td><%= book.description %></td>
+<tr id="book_<%= book.id %>" class="success">
   <td>
-    <%= link_to t(:details_link), book_path(book) %>
+    <%= book.title %>
+  </td>
+  <td>
+    <%= book.author %>
+  </td>
+  <td>
+    <%= book.description %>
+  </td>
+  <td>
+    <%= image_tag book.picture.url if book.picture? %>
+  </td>
+  <td>
+    <div id="favorite-<%= book.id %>">
+      <% unless current_user.nil? %>
+        <% unless current_user.favorite? book %>
+          <%= render "perusals/favorite", book: book %>
+        <% else %>
+          <%= render "perusals/unfavorite", book: book %>
+        <% end %>
+      <% end %>
+    </div>
   </td>
 </tr>
