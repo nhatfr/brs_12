@@ -8,7 +8,7 @@ en:
   user_deleted: "User Deleted!"
   edit_user: "Edit User"
   new_user: "New User"
-  all_users: "All User"
+  all_users: "All Users"
   edit: "Edit"
   delete: "Delete"
   login: "Log In"
@@ -21,6 +21,7 @@ en:
   framgia: "© 2015 Framgia, Inc. All rights reserved."
   app_name: "Book Review System"
   all_books: "All Books"
+  my_favorite_list: "My favorite books"
   new_book: "New Book"
   update_book: "Update book"
   create: "Create"
@@ -44,6 +45,10 @@ en:
   title_contains: "Title contains"
   activities: "Activities"
   new_comment: "New Comment"
+  administration: "Administration"
+  list: "Favorite books"
+  books: "Books"
+  books_list: "List of favorite books"
 
 category:
   notice:

@@ -226,6 +226,24 @@ span.picture {
   background-color: SlateGray;
 }
 
+.btn-follow {
+  width: 100px;
+}
+
+.btn-unfollow {
+  width: 100px;
+  background-color: DarkSlateGray;
+}
+
+.btn-favorite-books {
+  background-color: DarkOrange;
+  color: DarkGreen;
+}
+
+.btn-hidden {
+  visibility: hidden;
+}
+
 .header_cell {
   text-align: center;
 }
