@@ -1,4 +1,12 @@
 <tr>
-  <td><%= activity.action %></td>
-  <td><%= activity.target.email %></td>
+  <td>
+    <%= activity.action %>
+    <% if activity.target.is_a? User %>
+      <%= activity.target.email %>
+    <% elsif activity.target.is_a? Book %>
+      <%= activity.target.title %>
+    <% else %>
+      <%= activity.target.content %>
+    <% end %>
+  </td>
 </tr>

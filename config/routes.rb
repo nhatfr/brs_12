@@ -3,18 +3,20 @@ Rails.application.routes.draw do
 
   root to: "static_pages#home"
 
+  resources :relationships, only: [:create, :destroy]
+  resources :perusals, only: [:create, :destroy]
+  resources :categories, only: [:index, :show]
+
   resources :users, except: :destroy do
     resource :favorites, only: [:edit, :show]
   end
-  resources :categories, only: [:index, :show]
+
   resources :books, except: [:new, :create, :destroy] do
     resources :reviews, only: [:create, :destroy] do
       resources :comments
     end
   end
-  resources :relationships, only: [:create, :destroy]
-  resources :perusals, only: [:create, :destroy]
-
+  
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
