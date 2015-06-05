@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :books, except: [:new, :create, :destroy] do
     resources :reviews, only: [:create, :destroy] do
-      resources :comments
+      resources :comments, only: [:create, :destroy]
     end
   end
   
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :books do
       resources :reviews do
-        resource :comments
+        resources :comments, only: [:create, :destroy]
       end
     end
     root to: "users#index"

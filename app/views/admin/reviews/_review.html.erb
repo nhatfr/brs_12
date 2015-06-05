@@ -11,6 +11,8 @@
       <h3><%= comment.content %></h3>
       <h4><%= comment.user.email %></h4>
       <h4 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h4>
+      <%= link_to t(:delete), [:admin, review.book, review, comment],
+                              method: :delete, data: {confirm: t(:confirm)} %>
       <hr/>
     <% end %>
   </ul>
