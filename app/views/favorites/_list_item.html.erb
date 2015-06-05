@@ -1,0 +1,14 @@
+<tr class="success">
+  <td>
+    <%= book.title %>
+  </td>
+  <td>
+    <%= book.author %>
+  </td>
+  <td>
+    <%= book.description %>
+  </td>
+  <td>
+    <%= image_tag book.picture.url if book.picture? %>
+  </td>
+</tr>

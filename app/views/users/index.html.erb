@@ -1,9 +1,19 @@
-<table class="table table-bordered">
-  <tr>
-    <th><%= t :id %></th>
-    <th><%= t :email%></th>
-    <th><%= t :action %></th>
-  </tr>
-  <%= render @users %>
-</table>
-<%= will_paginate %>
+<div class="container">
+  <h1><%= t :all_users %></h1>
+
+  <%= will_paginate %>
+  <table id class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th class="col-md-1"><%= t :id %></th>
+        <th class="col-md-6"><%= t :email %></th>
+        <th class="col-md-5"><%= t :actions %></th>
+      </tr>
+    </thead>
+    <tbody id="users">
+      <%= render @users %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
+
+</div>

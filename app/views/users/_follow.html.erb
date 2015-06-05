@@ -1,2 +1,11 @@
-<%= link_to t(:follow), relationships_path(followed_id: user.id), 
-  method: :post, remote: true, class: "btn btn-primary" %>
+<% if user != current_user %>
+  <%= link_to t(:follow), relationships_path(followed_id: user.id), 
+    method: :post, remote: true, class: "btn btn-primary btn-follow" %>
+  &nbsp;&nbsp;
+<% else %>
+  <%= link_to t(:follow), relationships_path(followed_id: user.id),
+    method: :post, remote: true, class: "btn btn-primary btn-follow btn-hidden" %>
+  &nbsp;&nbsp;
+<% end %>
+
+<%= link_to t(:list), user_favorites_path(user), class: "btn btn-primary btn-favorite-books" %>

@@ -1,0 +1,19 @@
+<div class="container">
+  <h1><%= t :books_list %></h1>
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="col-md-4 info header_cell"><%= t :title %></th>
+        <th class="col-md-2 info header_cell"><%= t :author %></th>
+        <th class="col-md-4 info header_cell"><%= t :description %></th>
+        <th class="col-md-2 info header_cell"><%= t :cover %></th>
+      </tr>
+    </thead>
+    <tbody id="books">
+      <% @perusals.each do |perusal| %>
+        <%= render "favorites/list_item", book: perusal.book %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,2 +1,11 @@
-<%= link_to t(:unfollow), relationship_path(user.id),
-  method: :delete, remote: true, class: "btn btn-primary" %>
+<% if user != current_user %>
+  <%= link_to t(:unfollow), relationship_path(user.id),
+    method: :delete, remote: true, class: "btn btn-primary btn-unfollow" %>
+  &nbsp;&nbsp;
+<% else %>
+  <%= link_to t(:unfollow), relationship_path(user.id),
+    method: :delete, remote: true, class: "btn btn-primary btn-unfollow btn-hidden" %>
+  &nbsp;&nbsp;
+<% end %>
+
+<%= link_to t(:list), user_favorites_path(user), class: "btn btn-primary btn-favorite-books" %>
