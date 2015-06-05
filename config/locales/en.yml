@@ -42,6 +42,7 @@ en:
   search: "Search"
   author_contains: "Author contains"
   title_contains: "Title contains"
+  activities: "Activities"
 category:
   notice:
     success:

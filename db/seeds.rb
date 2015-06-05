@@ -14,10 +14,8 @@ puts "Create books"
 puts "Create reviews"
 users = User.order(:created_at).all
 books = Book.order(:created_at).all
+
 20.times do |n|
   content = Faker::Lorem.sentence(3)
   users.each {|user| user.reviews.create!(content: content, book_id: n)}
 end
-
-puts "Create Relationship"
-30.times {FactoryGirl.create :relationship}
