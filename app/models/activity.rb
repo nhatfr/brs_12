@@ -9,6 +9,8 @@ class Activity < ActiveRecord::Base
       User.find target_id
     elsif self.favorite? || self.unfavorite?
       Book.find target_id
+    elsif self.like? || self.unlike?
+      Activity.find target_id      
     else
       Review.find target_id
     end

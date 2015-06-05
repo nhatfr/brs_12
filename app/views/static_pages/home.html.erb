@@ -5,7 +5,10 @@
       <% if user.activities.any? %>
         <tr>
           <td><%= link_to user.email, user_path(user) %></td>
-          <%= render user.activities %>
+          <% user.activities.each do |activity| %>
+            <tr>
+              <%= render activity, user: user %>
+          <% end %> 
         </tr>
       <% end %>
     <% end %>

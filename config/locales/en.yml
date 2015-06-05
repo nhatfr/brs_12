@@ -48,7 +48,8 @@ en:
   administration: "Administration"
   list: "Favorite Books"
   books: "Books"
-  books_list: "List Of Favorite Books"
+  books_list: "List of favorite books"
+  msg: "Like activity id:"
 
 category:
   notice:
