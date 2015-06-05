@@ -6,7 +6,11 @@ class Activity < ActiveRecord::Base
   
   def target
     if self.follow? || self.unfollow?
-      @user = User.find target_id
+      User.find target_id
+    elsif self.favorite? || self.unfavorite?
+      Book.find target_id
+    else
+      Review.find target_id
     end
   end
 end

@@ -1,10 +1,13 @@
 actions:
   - read
-  - mark
+  - reading
+  - favorite
+  - unfavorite
   - like
   - unlike
   - write
   - comment
+  - delete comment
   - follow
   - unfollow
   - request
