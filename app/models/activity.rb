@@ -6,7 +6,7 @@ class Activity < ActiveRecord::Base
   
   def target
     if self.follow? || self.unfollow?
-      @user = User.find target_id
+      User.find target_id
     end
   end
 end
