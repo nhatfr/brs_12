@@ -7,13 +7,16 @@
     <%= link_to t(:delete), admin_book_review_path(review.book.id, review.id),
         method: :delete, data: {confirm: t(:confirm)} %>
   <% end %>
+  <h3><u>Comments</u></h3>
   <ul>
     <% review.comments.each do |comment| %>
-      <h3><%= comment.content %></h3>
-      <h4><%= comment.user.email %></h4>
-      <h4 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h4>
+      <h4><%= comment.content %></h4>
+      <h5><%= comment.user.email %></h5>
+      <h5 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h5>
       <% if comment.user == current_user %>
-        Delete
+        <%= link_to t(:delete), book_review_comment_path(comment.review.book_id,
+                                                         review.id, comment),
+                                method: :delete, data: {confirm: t(:confirm)} %>
       <% end %>
       <hr/>
     <% end %>
