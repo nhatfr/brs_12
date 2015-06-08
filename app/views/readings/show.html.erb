@@ -1,0 +1,32 @@
+<div class="container">
+  <h1><%= t :reading_history %></h1>
+
+  <big><big><%= t :what %> <%= @user.email %> <%= t :read_completely %>:</big></big>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="col-md-5 info header_cell"><%= t :title %></th>
+        <th class="col-md-2 info header_cell"><%= t :author %></th>
+        <th class="col-md-5 info header_cell"><%= t :finish_time %></th>
+      </tr>
+    </thead>
+    <tbody id="read_items">
+      <%= render partial: "readings/read_item", collection: @read_list %>
+    </tbody>
+  </table>
+
+  <big><big><%= t :what %> <%= @user.email %> <%= t :is_reading %>:</big></big>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="col-md-5 info header_cell"><%= t :title %></th>
+        <th class="col-md-2 info header_cell"><%= t :author %></th>
+        <th class="col-md-5 info header_cell"><%= t :start_time %></th>
+      </tr>
+    </thead>
+    <tbody id="reading_items">
+      <%= render partial: "readings/reading_item", collection: @reading_list %>
+    </tbody>
+  </table>
+  
+</div>

@@ -1,12 +1,22 @@
 <% if record = current_user.find_reading(book) %>
 
-  <%= link_to t(:reading_button), user_readings_path(book_id: record.book_id, user_id: current_user.id,
-    behaviour: Settings.book.reading), method: :patch, remote: true,
-    class: record.reading? ? "btn btn-primary btn-reading btn-hidden" : "btn btn-primary btn-reading" %>
+  <% if record.reading? %>
+    <%= link_to t(:reading_button), user_readings_path(book_id: record.book_id, user_id: current_user.id,
+      behaviour: Settings.book.reading), method: :patch, remote: true,
+      class: "btn btn-primary btn-reading btn-hidden" %>
 
-  <%= link_to t(:read_button), user_readings_path(book_id: record.book_id, user_id: current_user.id,
-    behaviour: Settings.book.read), method: :patch, remote: true,
-    class: record.read? ? "btn btn-primary btn-read btn-hidden" : "btn btn-primary btn-read" %>
+    <%= link_to t(:read_button), user_readings_path(book_id: record.book_id, user_id: current_user.id,
+      behaviour: Settings.book.read), method: :patch, remote: true,
+      class: "btn btn-primary btn-read" %>
+  <% else %>
+    <%= link_to t(:reading_button), user_readings_path(book_id: record.book_id, user_id: current_user.id,
+      behaviour: Settings.book.reading), method: :patch, remote: true,
+      class: "btn btn-primary btn-reading btn-hidden" %>
+
+    <%= link_to t(:read_button), user_readings_path(book_id: record.book_id, user_id: current_user.id,
+      behaviour: Settings.book.read), method: :patch, remote: true,
+      class: "btn btn-primary btn-read btn-hidden" %>
+  <% end %>
 
   <%= link_to t(:unread_button), user_readings_path(book_id: record.book_id, user_id: current_user.id),
     method: :delete, remote: true, class: "btn btn-primary btn-unread" %>

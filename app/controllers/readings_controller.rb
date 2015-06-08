@@ -1,6 +1,12 @@
 class ReadingsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @user = User.find params[:user_id]
+    @reading_list = Reading.order_by_created_at.reading_list @user
+    @read_list = Reading.order_by_created_at.read_list @user
+  end
+
   def create
     @book = Book.find params[:book_id]
     current_user.read @book, params[:behaviour]

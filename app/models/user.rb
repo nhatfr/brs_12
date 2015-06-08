@@ -72,10 +72,10 @@ class User < ActiveRecord::Base
   end
 
   def reading? book
-    Reading.where(user: self, book: book, status: 0).count > 0
+    Reading.where(user: self, book: book, status: Settings.statuses.reading).count > 0
   end
 
   def read? book
-    Reading.where(user: self, book: book, status: 1).count > 0
+    Reading.where(user: self, book: book, status: Settings.statuses.read).count > 0
   end
 end
