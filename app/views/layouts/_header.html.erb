@@ -15,6 +15,7 @@
               <ul class="dropdown-menu">
                 <li><%= link_to t(:users), admin_users_path %></li>
                 <li><%= link_to t(:books), admin_books_path %></li>
+                <li><%= link_to t(:all_request), admin_requests_path %></li>
               </ul>
             </li>
           <% end %>
@@ -30,6 +31,7 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to t(:my_favorite_list), user_favorites_path(current_user) %></li>
                   <li><%= link_to t(:all_books), books_path %></li>
+                  <li><%= link_to t(:all_request), requests_path %></li>
                 </ul>
               </li>
             </li>

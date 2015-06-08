@@ -20,3 +20,7 @@ books = Book.order(:created_at).all
   content = Faker::Lorem.sentence(3)
   users.each {|user| user.reviews.create!(content: content, book_id: n)}
 end
+
+puts "Create requests"
+10.times {FactoryGirl.create :request}
+

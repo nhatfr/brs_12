@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605060328) do
+ActiveRecord::Schema.define(version: 20150608061510) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "action"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20150605060328) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "status"
   end
 
   add_index "requests", ["user_id"], name: "index_requests_on_user_id"

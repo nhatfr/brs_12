@@ -14,6 +14,7 @@ class Ability
       can [:create, :destroy], Perusal
       can [:create, :destroy], Like
       can :manage, Reading
+      can :manage, Request, user_id: user.id
     end
   end
 end

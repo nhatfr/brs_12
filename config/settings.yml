@@ -16,6 +16,12 @@ book:
   read: read
   reading: reading
 
+request:
+  states:
+    - pending
+    - accepted
+    - rejected
+
 paginate:
   per_page: 10
   books_per_page_size: 10
