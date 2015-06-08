@@ -52,4 +52,30 @@ class User < ActiveRecord::Base
   def unlike activity
     Like.find_by(user_id: self.id, activity_id: activity.id).destroy
   end
+
+  def read book, status
+    record = Reading.find_or_initialize_by(user: self, book: book)
+    record.update status: Reading.statuses[status]
+  end
+
+  def read book, status
+    record = Reading.find_or_initialize_by user: self, book: book
+    record.update status: Reading.statuses[status]
+  end
+
+  def unread book
+    Reading.find_by(user: self, book: book).destroy
+  end
+
+  def find_reading book
+    Reading.find_by user: self, book: book
+  end
+
+  def reading? book
+    Reading.where(user: self, book: book, status: 0).count > 0
+  end
+
+  def read? book
+    Reading.where(user: self, book: book, status: 1).count > 0
+  end
 end

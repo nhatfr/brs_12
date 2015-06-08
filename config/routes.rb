@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, except: :destroy do
     resource :favorites, only: [:edit, :show]
+    resource :readings, except: [:new, :edit]
   end
 
   resources :books, except: [:new, :create, :destroy] do

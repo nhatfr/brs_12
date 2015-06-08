@@ -50,6 +50,10 @@ en:
   books: "Books"
   books_list: "List of favorite books"
   msg: "Like activity id:"
+  unread_button: "Unread"
+  read_button: "Read"
+  reading_button: "Reading"
+  marking_actions: "Mark a book as"
 
 category:
   notice:
