@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :perusals, only: [:create, :destroy]
   resources :likes, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
+  resources :requests, except: :show
 
   resources :users, except: :destroy do
     resource :favorites, only: [:edit, :show]
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]
     resources :categories
-
+    resources :requests, only: [:index, :update, :destroy]
     resources :books do
       resources :reviews
     end

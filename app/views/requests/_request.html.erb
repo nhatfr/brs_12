@@ -1,0 +1,13 @@
+<tr>
+  <td><%= request.id %></td>
+  <td><%= request.book_name %></td>
+  <td><%= request.description %></td>
+  <td><%= request.author %></td>
+  <td><%= request.ISBN %></td>
+  <% if request.pending? %>
+    <td><%= link_to t(:delete), request_path(request.id),
+      method: :delete, data: {confirm: t(:confirm)} %></td>
+    <td><%= link_to t(:edit), edit_request_path(request.id) %></td>
+  <% end %>
+  <td><%= request.status %></td>
+</tr>

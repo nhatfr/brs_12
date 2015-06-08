@@ -1,0 +1,18 @@
+<h3><%= t :request_book %></h3>
+<div class="col-md-3">
+  <%= link_to t(:add_new_request), new_request_path, class: "btn-success" %>
+</div>
+<table class="table table-bordered">
+  <tr>
+    <th><%= t :id %></th>
+    <th><%= t :title %></th>
+    <th><%= t :description %></th>
+    <th><%= t :author %></th>
+    <th><%= t :ISBN %></th>
+    <th><%= t :status %></th>
+  </tr>
+  <tr>
+    <%= render @requests %>
+  </tr>
+</table>
+

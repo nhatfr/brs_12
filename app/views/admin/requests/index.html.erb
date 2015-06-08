@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+  <tr>
+    <th><%= t :id %></th>
+    <th><%= t :title %></th>
+    <th><%= t :description %></th>
+    <th><%= t :author %></th>
+    <th><%= t :ISBN %></th>
+    <th><%= t :sent_by %></th>
+  </tr>
+  <tr>
+    <%= render @requests %>
+  </tr>
+</table>
+<%= will_paginate %>
