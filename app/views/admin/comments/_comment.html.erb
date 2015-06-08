@@ -3,7 +3,7 @@
   <h4><%= comment.user.email %></h4>
   <h4><%= comment.book.title %></h4>
   <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
-  <%= link_to t(:delete), admin_book_review_comments(comment.id),
+  <%= link_to t(:delete), [:admin, comment],
                           method: :delete, data: {confirm: t(:confirm)} %>
   <hr/>
 </ul>

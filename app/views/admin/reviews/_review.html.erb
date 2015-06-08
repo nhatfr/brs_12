@@ -3,7 +3,7 @@
   <h4><%= review.user.email %></h4>
   <h4><%= review.book.title %></h4>
   <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
-  <%= link_to t(:delete), admin_book_review_path(review.book.id, review.id),
+  <%= link_to t(:delete), [:admin, review],
       method: :delete, data: {confirm: t(:confirm)} %>
   <hr/>
   <ul>
@@ -11,7 +11,7 @@
       <h3><%= comment.content %></h3>
       <h4><%= comment.user.email %></h4>
       <h4 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h4>
-      <%= link_to t(:delete), [:admin, review.book, review, comment],
+      <%= link_to t(:delete), [:admin, review, comment],
                               method: :delete, data: {confirm: t(:confirm)} %>
       <hr/>
     <% end %>
