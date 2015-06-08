@@ -18,6 +18,7 @@ gem "coffee-rails"
 gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder"
+gem "ratyrate"
 
 group :development do
   gem "factory_girl_rails"

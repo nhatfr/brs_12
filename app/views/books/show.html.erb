@@ -22,7 +22,7 @@
 
 <h1><%= t :all_reviews %></h1>
 
-<% if user_signed_in? %>
+<% if user_signed_in? && !current_user.admin? %>
   <p>
     <section class="review_form">
       <%= render "shared/review_form" %>

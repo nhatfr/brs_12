@@ -5,10 +5,12 @@
   <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
   <% if current_user == review.user  %>
     <%= link_to t(:delete), book_review_path(review.book.id, review.id),
-        method: :delete, data: {confirm: t(:confirm)} %>
+                            method: :delete, data: {confirm: t(:confirm)},
+                            class: "btn btn-danger" %>
   <% elsif current_user.admin? %>
     <%= link_to t(:delete), [:admin, review],
-                            method: :delete, data: {confirm: t(:confirm)} %>
+                            method: :delete, data: {confirm: t(:confirm)},
+                            class: "btn btn-danger" %>
   <% end %>
   <h3><u>Comments</u></h3>
   <ul>
@@ -18,15 +20,17 @@
       <h5 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h5>
       <% if current_user == comment.user %>
         <%= link_to t(:delete), review_comment_path(review.id, comment),
-                                method: :delete, data: {confirm: t(:confirm)} %>
+                                method: :delete, data: {confirm: t(:confirm)},
+                                class: "btn btn-danger" %>
       <% elsif current_user.admin? %>
         <%= link_to t(:delete), [:admin, comment],
-                                method: :delete, data: {confirm: t(:confirm)} %>
+                                method: :delete, data: {confirm: t(:confirm)},
+                                class: "btn btn-danger" %>
       <% end %>
       <hr/>
     <% end %>
   </ul>
-  <% if user_signed_in? %>
+  <% if user_signed_in? && !current_user.admin? %>
     <p>
       <section class="comment_form">
         <%= render "shared/comment_form", review: review %>
