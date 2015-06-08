@@ -32,6 +32,7 @@
                   <li><%= link_to t(:my_favorite_list), user_favorites_path(current_user) %></li>
                   <li><%= link_to t(:all_books), books_path %></li>
                   <li><%= link_to t(:all_request), requests_path %></li>
+                  <li><%= link_to t(:reading_history), user_readings_path(user_id: current_user.id) %></li>
                 </ul>
               </li>
             </li>

@@ -16,6 +16,10 @@ book:
   read: read
   reading: reading
 
+statuses:
+  reading: 0
+  read: 1
+
 request:
   states:
     - pending

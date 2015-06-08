@@ -215,7 +215,7 @@ span.picture {
 
 /* Some buttons */
 
-.favorite {
+.btn-favorite {
   width: 100px;
   background-color: DarkOrange;
   color: Navy;
@@ -225,7 +225,7 @@ span.picture {
   }
 }
 
-.unfavorite {
+.btn-unfavorite {
   width: 100px;
   background-color: SlateGray;
   &:hover {

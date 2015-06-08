@@ -49,11 +49,15 @@ en:
   list: "Favorite Books"
   books: "Books"
   books_list: "List of favorite books"
+  reading_history: "Reading History"
   msg: "Like activity id:"
   unread_button: "Unread"
   read_button: "Read"
   reading_button: "Reading"
   marking_actions: "Mark a book as"
+  what: "What"
+  read_completely: "has read completely"
+  is_reading: "is reading"
 
 category:
   notice:
