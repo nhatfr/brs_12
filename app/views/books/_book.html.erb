@@ -1,16 +1,9 @@
 <tr id="book_<%= book.id %>" class="success">
-  <td>
-    <%= book.title %>
-  </td>
-  <td>
-    <%= book.author %>
-  </td>
-  <td>
-    <%= book.description %>
-  </td>
-  <td>
-    <%= image_tag book.picture.url if book.picture? %>
-  </td>
+  <td><%= book.title %></td>
+  <td><%= book.author %></td>
+  <td><%= book.description %></td>
+  <td><%= image_tag book.picture.url if book.picture? %></td>
+  <td><%= book.rating %></td>
   <td>
     <div id="favorite-<%= book.id %>">
       <% unless current_user.nil? %>

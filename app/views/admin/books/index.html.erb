@@ -3,18 +3,20 @@
   <h1><%= t :all_books %></h1>
 
   <div class="well">
-    <%= link_to t(:new_book), new_admin_book_path, remote: true, class: "btn btn-primary" %>
+    <%= link_to t(:new_book), new_admin_book_path, remote: true,
+                              class: "btn btn-primary" %>
   </div>
 
   <%= will_paginate %>
   <table id class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th><%= t :title %></th>
-      <th><%= t :author %></th>
-      <th><%= t :description %></th>
-      <th><%= t :cover %></th>
-      <th><%= t :actions %></th>
+      <th class="col-md-2"><%= t :title %></th>
+      <th class="col-md-1"><%= t :author %></th>
+      <th class="col-md-3"><%= t :description %></th>
+      <th class="col-md-2"><%= t :cover %></th>
+      <th class="col-md-1"><%= t :rating %></th>
+      <th class="col-md-3"><%= t :actions %></th>
     </tr>
     </thead>
     <tbody id="books">

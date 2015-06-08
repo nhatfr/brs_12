@@ -4,6 +4,7 @@
   <h4><%= comment.book.title %></h4>
   <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
   <%= link_to t(:delete), admin_book_review_path(review.book.id, review.id),
-                          method: :delete, data: {confirm: t(:confirm)} %>
+                          method: :delete, data: {confirm: t(:confirm)},
+                          class: "btn btn-danger" %>
   <hr/>
 </ul>
