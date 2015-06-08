@@ -13,6 +13,7 @@ class Ability
       can [:create, :destroy], Relationship
       can [:create, :destroy], Perusal
       can [:create, :destroy], Like
+      can :manage, Reading
     end
   end
 end
