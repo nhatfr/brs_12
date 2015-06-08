@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
   resources :perusals, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
 
   resources :users, except: :destroy do

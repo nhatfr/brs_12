@@ -5,8 +5,17 @@
       <%= activity.target.email %>
     <% elsif activity.target.is_a? Book %>
       <%= activity.target.title %>
+    <% elsif activity.target.is_a? Activity %>
+      <%= t :msg %><%= activity.target.id %>
     <% else %>
       <%= activity.target.content %>
     <% end %>
+    <div id="like-<%= activity.id %>">
+      <% if user_like_activity? user, activity %>
+        <%= render "likes/like", activity: activity %>
+      <% else %>
+        <%= render "likes/unlike", activity: activity %>
+      <% end %>
+    </div>
   </td>
 </tr>
