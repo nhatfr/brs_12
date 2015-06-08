@@ -3,9 +3,12 @@
   <h4><%= review.user.email %></h4>
   <h4><%= review.book.title %></h4>
   <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
-  <% if review.user == current_user %>
-    <%= link_to t(:delete), admin_book_review_path(review.book.id, review.id),
+  <% if current_user == review.user  %>
+    <%= link_to t(:delete), book_review_path(review.book.id, review.id),
         method: :delete, data: {confirm: t(:confirm)} %>
+  <% elsif current_user.admin? %>
+    <%= link_to t(:delete), [:admin, review],
+                            method: :delete, data: {confirm: t(:confirm)} %>
   <% end %>
   <h3><u>Comments</u></h3>
   <ul>
@@ -13,9 +16,11 @@
       <h4><%= comment.content %></h4>
       <h5><%= comment.user.email %></h5>
       <h5 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h5>
-      <% if comment.user == current_user %>
-        <%= link_to t(:delete), book_review_comment_path(comment.review.book_id,
-                                                         review.id, comment),
+      <% if current_user == comment.user %>
+        <%= link_to t(:delete), review_comment_path(review.id, comment),
+                                method: :delete, data: {confirm: t(:confirm)} %>
+      <% elsif current_user.admin? %>
+        <%= link_to t(:delete), [:admin, comment],
                                 method: :delete, data: {confirm: t(:confirm)} %>
       <% end %>
       <hr/>

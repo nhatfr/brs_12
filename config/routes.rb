@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   end
 
   resources :books, except: [:new, :create, :destroy] do
-    resources :reviews, only: [:create, :destroy] do
-      resources :comments, only: [:create, :destroy]
-    end
+    resources :reviews, only: [:create, :destroy]
   end
-  
+
+  resources :reviews, only: [:create, :destroy] do
+    resources :comments, only: [:create, :destroy]
+  end
+
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
@@ -27,11 +29,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]
     resources :categories
+
     resources :books do
-      resources :reviews do
-        resources :comments, only: [:create, :destroy]
-      end
+      resources :reviews
     end
+
+    resources :reviews do
+      resources :comments
+    end
+    
     root to: "users#index"
   end
 
