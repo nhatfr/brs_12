@@ -11,7 +11,7 @@
       <%= activity.target.content %>
     <% end %>
     <div id="like-<%= activity.id %>">
-      <% if user_like_activity? user, activity %>
+      <% if user_like_activity? @user, activity %>
         <%= render "likes/like", activity: activity %>
       <% else %>
         <%= render "likes/unlike", activity: activity %>
