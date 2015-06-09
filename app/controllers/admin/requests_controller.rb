@@ -1,5 +1,6 @@
 class Admin::RequestsController < ApplicationController
   load_and_authorize_resource
+  before_action :verify_admin
 
   def index
     @requests = @requests.paginate page: params[:page], per_page: Settings.per_page

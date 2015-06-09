@@ -46,6 +46,7 @@ en:
   activities: "Activities"
   new_comment: "New Comment"
   administration: "Administration"
+  permission_required: "Only admins can access that resources"
   list: "Favorite Books"
   books: "Books"
   books_list: "List of favorite books"

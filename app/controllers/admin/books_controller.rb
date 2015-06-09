@@ -1,5 +1,6 @@
 class Admin::BooksController < ApplicationController
   load_and_authorize_resource
+  before_action :verify_admin
 
   def index
     @books = @books.order_by_created_at
@@ -14,6 +15,7 @@ class Admin::BooksController < ApplicationController
   end
 
   def new
+    @categories = Category.all
   end
 
   def create
@@ -56,6 +58,6 @@ class Admin::BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit :title, :author, :description, :picture
+    params.require(:book).permit :title, :author, :description, :picture, :category_id
   end
 end

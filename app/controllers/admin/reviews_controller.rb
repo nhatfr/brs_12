@@ -1,5 +1,6 @@
 class Admin::ReviewsController < ApplicationController
   load_and_authorize_resource
+  before_action :verify_admin
 
   def destroy
     if @review.destroy
@@ -9,5 +10,4 @@ class Admin::ReviewsController < ApplicationController
     end
     redirect_to @review.book
   end
-
 end
