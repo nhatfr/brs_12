@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 
   enum role: [:normal, :admin]
 
+  ratyrate_rater
+
   def follow other_user
     active_relationships.create followed_id: other_user.id
   end

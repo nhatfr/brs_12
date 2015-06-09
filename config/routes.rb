@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/rate" => "rater#create", as: "rate"
   devise_for :users
 
   root to: "static_pages#home"
@@ -43,5 +44,4 @@ Rails.application.routes.draw do
     
     root to: "users#index"
   end
-
 end
