@@ -20,9 +20,7 @@ gem "turbolinks"
 gem "jbuilder"
 gem "ratyrate"
 
-group :development do
-  gem "factory_girl_rails"
-  gem "faker"
+group :development, :test do
   gem "sqlite3"
   gem "byebug"
   gem "web-console"
@@ -33,4 +31,6 @@ group :production do
   gem "pg"
   gem "rails_12factor"
   gem "puma"
+  gem "faker"
+  gem "factory_girl_rails"
 end
