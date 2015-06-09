@@ -7,4 +7,5 @@ class Book < ActiveRecord::Base
   scope :order_by_created_at, -> {order created_at: :DESC}
 
   mount_uploader :picture, PictureUploader
+  ratyrate_rateable Settings.rate.content, Settings.rate.design
 end

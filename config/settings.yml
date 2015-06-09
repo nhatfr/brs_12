@@ -15,6 +15,15 @@ actions:
 book:
   read: read
   reading: reading
+  
+rate:
+  content: content
+  design: design
+  type:
+    score: score
+
+place:
+  right: right
 
 statuses:
   reading: 0

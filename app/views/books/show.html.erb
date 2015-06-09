@@ -1,24 +1,26 @@
-<h1><%= t :book_info %></h1>
-<table id class="table table-bordered table-striped">
-  <thead>
-  <tr>
-    <th><%= t :title %></th>
-    <th><%= t :author %></th>
-    <th><%= t :ISBN %></th>
-    <th><%= t :cover %></th>
-    <th><%= t :description %></th>
-  </tr>
-  </thead>
-  <tbody id="books">
-    <tr id="book_<%= @book.id %>">
-      <td><%= @book.title %></td>
-      <td><%= @book.author %></td>
-      <td><%= @book.ISBN %></td>
-      <td><%= image_tag @book.picture.url if @book.picture? %></td>
-      <td><%= @book.description %></td>
-    </tr>
-  </tbody>
-</table>
+<h1><i><%= @book.title %></i></h1>
+
+<div class="row">
+  <div class="small-2 large-2 columns">
+    <%= imdb_style_rating_for @book, current_user%>
+  </div>
+  <br>
+  <div class="small-2 large-4 columns">
+    <% if current_user %>
+      <big><big><big><%= t :content %></big></big></big>
+      <%= rating_for @book, Settings.rate.content, disable_after_rate: false, enable_half: true,
+        cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
+        target: "#hintDiv1", targetText: t(:content_rate), targetType: Settings.rate.type.score %>
+      <div id="hintDiv1"></div>
+      <br>
+      <big><big><big><%= t :design %></big></big></big>
+      <%= rating_for @book, Settings.rate.design, disable_after_rate: false, enable_half: true,
+        cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
+        target: "#hintDiv2", targetText: t(:design_content), targetType: Settings.rate.type.score %>
+      <div id="hintDiv2"></div>
+    <% end %>
+  </div>
+</div>
 
 <h1><%= t :all_reviews %></h1>
 

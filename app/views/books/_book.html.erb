@@ -3,9 +3,12 @@
   <td><%= book.author %></td>
   <td><%= book.description %></td>
   <td><%= image_tag book.picture.url if book.picture? %></td>
-  <td><%= book.rating %></td>
   <td>
-    <div id="favorite-<%= book.id %>">
+    <%= t :content %> <%= RatingCache.content_rate(book).first.try(:avg) %><br>
+    <%= t :design %> <%= RatingCache.design_rate(book).first.try(:avg) %>
+  </td>
+  <td>
+    <div id="favorite-<%= book.id %>" data-no-turbolink="true">
       <% unless current_user.nil? %>
         <% unless current_user.favorite? book %>
           <%= render "perusals/favorite", book: book %>
