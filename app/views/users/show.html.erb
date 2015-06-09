@@ -44,7 +44,7 @@
         <th><%= t :activities %></th>
         <th><%= t :target%></th>
       </tr>
-      <%= render @user.activities %>
+      <%= render @user.activities, user: @user %>
     </table>
   </div>
 </div>
