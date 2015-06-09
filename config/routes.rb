@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   post "/rate" => "rater#create", as: "rate"
   devise_for :users
 
-  root to: "static_pages#home"
+  root to: "books#index"
 
   resources :relationships, only: [:create, :destroy]
   resources :perusals, only: [:create, :destroy]
@@ -42,6 +42,6 @@ Rails.application.routes.draw do
       resources :comments
     end
     
-    root to: "users#index"
+    root to: "books#index"
   end
 end

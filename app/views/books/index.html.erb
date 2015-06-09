@@ -1,24 +1,28 @@
 <div class="container">
-  <table>
-    <%= render "search" %>
-  </table>
-</div>
-<div>
-  <%= will_paginate %>
-  <table class="table table-bordered table-striped table-hover">
-    <thead>
-      <tr>
-        <th class="col-md-1 info header_cell"><%= t :title %></th>
-        <th class="col-md-1 info header_cell"><%= t :author %></th>
-        <th class="col-md-1 info header_cell"><%= t :description %></th>
-        <th class="col-md-2 info header_cell"><%= t :cover %></th>
-        <th class="col-md-1 info header_cell"><%= t :rating %></th>
-        <th class="col-md-3 info header_cell"><%= t :actions %></th>
-        <th class="col-md-3 info header_cell"><%= t :marking_actions %></th>
-      </tr>
-    </thead>
-    <tbody id="books">
-      <%= render @books %>
-    </tbody>
-  </table>
+  <div class="row">
+    <table>
+      <%= render "search" %>
+    </table>
+  </div>
+
+  <div class="row" data-no-turbolink>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-3"></th>
+          <th class="col-md-3"></th>
+          <th class="col-md-3"></th>
+          <th class="col-md-3"></th>
+        </tr>
+      </thead>
+      <tbody id="books">
+        <% @books.in_groups_of(Settings.books_per_row, false).each do |group| %>
+          <tr>
+            <%= render partial: "book", collection: group, as: :book %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate %>
+  </div>
 </div>

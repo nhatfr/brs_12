@@ -1,40 +1,83 @@
-<h1><i><%= @book.title %></i></h1>
-
-<div class="row">
-  <div class="small-2 large-2 columns">
-    <%= imdb_style_rating_for @book, current_user%>
+<div class="container">
+  <div class="blank1">
   </div>
-  <br>
-  <div class="small-2 large-4 columns">
-    <% if current_user %>
-      <big><big><big><%= t :content %></big></big></big>
-      <%= rating_for @book, Settings.rate.content, disable_after_rate: false, enable_half: true,
-        cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
-        target: "#hintDiv1", targetText: t(:content_rate), targetType: Settings.rate.type.score %>
-      <div id="hintDiv1"></div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <%= image_tag @book.picture.url if @book.picture? %>
+      </div>
       <br>
-      <big><big><big><%= t :design %></big></big></big>
-      <%= rating_for @book, Settings.rate.design, disable_after_rate: false, enable_half: true,
-        cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
-        target: "#hintDiv2", targetText: t(:design_content), targetType: Settings.rate.type.score %>
-      <div id="hintDiv2"></div>
-    <% end %>
+      <br>
+      <div class="row" id="favorite-<%= @book.id %>" data-no-turbolink="true">
+        <%= (current_user.nil? || !current_user.favorite?(@book)) ? render("perusals/favorite", book: @book)
+                                                                 : render("perusals/unfavorite", book: @book) %>
+      </div>
+      <br>
+      <div class="row" id="reading-<%= @book.id %>">
+        <%= render "readings/reading", book: @book %>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <p><strong><b><big><big><%= @book.title %></big></big></b></strong></p>
+      <p>-- <%= link_to @book.author, "#" %> --</p>
+      <% unless current_user.nil? %>
+        <div>
+          <%= rating_for @book, Settings.rate.content, disable_after_rate: false, enable_half: true,
+            cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
+            target: "#hintDiv1", targetText: t(:content_rate), targetType: Settings.rate.type.score %>
+          <span><%= RatingCache.content_rate(@book).first.try(:avg) %><%= t :by %><%= Rate.content_raters(@book).count %> user(s)</span>
+          <div id="hintDiv1"></div>
+          <br>
+          <%= rating_for @book, Settings.rate.design, disable_after_rate: false, enable_half: true,
+            cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
+            target: "#hintDiv2", targetText: t(:design_content), targetType: Settings.rate.type.score %>
+          <span><%= RatingCache.design_rate(@book).first.try(:avg) %><%= t :by %><%= Rate.design_raters(@book).count %><%= t :user %></span>
+          <div id="hintDiv2"></div>
+        </div>
+      <% else %>
+        <p class="notification"><%= t :login_suggestion %><%= link_to t(:_login), login_path %><%= t :first %></p>
+      <% end %>
+      <br><hr>
+      <p><big><%= t :about_this_book %></big></p>
+      <p><%= @book.description %></p>
+    </div>
+
+    <hr>
   </div>
+
+  <br><hr>
+  <div class="blank2">
+  </div>
+
+  <div class="row" data-no-turbolink="true">
+    <p><big><%= t :related_book %></big></p>
+    <table class="table">
+      <tr>
+        <% @books.each do |book| %>
+          <td class="center_td">
+            <%= link_to book_path(book) do %>
+              <%= image_tag book.picture.url if book.picture? %>
+            <% end %>
+            <br>
+            <%= link_to book.title, book_path(book) %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+
+  <br><hr>
+  <div class="blank2">
+  </div>
+
+  <div class="row">
+    <p><big><%= t :product_details %></big></p>
+  </div>
+
+  <br><hr>
+  <div class="blank2">
+  </div>
+
 </div>
-
-<h1><%= t :all_reviews %></h1>
-
-<% if user_signed_in? && !current_user.admin? %>
-  <p>
-    <section class="review_form">
-      <%= render "shared/review_form" %>
-    </section>
-  </p>
-<% end %>
-
-<hr/>
-
-<ol class="reviews">
-  <%= render @reviews %>
-</ol>
-<%= will_paginate @reviews %>
