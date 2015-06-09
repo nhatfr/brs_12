@@ -50,18 +50,9 @@ class User < ActiveRecord::Base
   def like activity
     Like.create user_id: self.id, activity_id: activity.id
   end
-
-  def unlike activity
-    Like.find_by(user_id: self.id, activity_id: activity.id).destroy
-  end
-
+  
   def read book, status
     record = Reading.find_or_initialize_by(user: self, book: book)
-    record.update status: Reading.statuses[status]
-  end
-
-  def read book, status
-    record = Reading.find_or_initialize_by user: self, book: book
     record.update status: Reading.statuses[status]
   end
 

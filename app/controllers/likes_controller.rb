@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
   load_and_authorize_resource
 
   def create
@@ -11,10 +12,12 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @activity = Activity.find params[:id]
-    current_user.unlike @activity
+    @like = Like.find(params[:id])
+    @activity = @like.activity
+    @like.destroy
     respond_to do |format|
       format.js
+      format.html
     end
   end
 end

@@ -1,15 +1,20 @@
 <% if user_signed_in?  %>
   <table class="table table-bordered">
-    <th><%= t :new_feed %></th>  
-    <% current_user.following.each do |user| %>
-      <% if user.activities.any? %>
-        <tr>
-          <td><%= link_to user.email, user_path(user) %></td>
+    <% if current_user.following.blank? %>
+      <%= render @books %>
+    <% else %>
+      <th><%= t :new_feed %></th>  
+      <% current_user.following.each do |user| %>
+        <% if user.activities.any? %>
+          <tr>
+            <td><%= link_to user.email, user_path(user) %></td>
+          </tr>
           <% user.activities.each do |activity| %>
             <tr>
               <%= render activity, user: user %>
-          <% end %> 
-        </tr>
+            </tr>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
   </table>  

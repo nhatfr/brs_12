@@ -33,4 +33,5 @@ group :production do
   gem "puma"
   gem "faker"
   gem "factory_girl_rails"
+
 end
