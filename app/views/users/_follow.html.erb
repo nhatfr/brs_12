@@ -1,10 +1,10 @@
 <% if user != current_user %>
   <%= link_to t(:follow), relationships_path(followed_id: user.id), 
-    method: :post, remote: true, class: "btn btn-primary btn-follow" %>
+    method: :post, remote: !current_user.nil?, class: "btn btn-primary btn-follow" %>
   &nbsp;&nbsp;
 <% else %>
   <%= link_to t(:follow), relationships_path(followed_id: user.id),
-    method: :post, remote: true, class: "btn btn-primary btn-follow btn-hidden" %>
+    method: :post, remote: !current_user.nil?, class: "btn btn-primary btn-follow btn-hidden" %>
   &nbsp;&nbsp;
 <% end %>
 

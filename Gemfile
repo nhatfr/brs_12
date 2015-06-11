@@ -25,12 +25,13 @@ group :development, :test do
   gem "byebug"
   gem "web-console"
   gem "spring"
+  gem "faker"
+  gem "factory_girl_rails"
 end
 
 group :production do
   gem "pg"
   gem "rails_12factor"
   gem "puma"
-  gem "faker"
-  gem "factory_girl_rails"
+
 end
