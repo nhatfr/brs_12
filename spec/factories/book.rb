@@ -5,5 +5,6 @@ FactoryGirl.define do
     ISBN {Faker::Number.number(10)}
     rating {1 + rand(5)}
     description {Faker::Lorem.paragraph(1, true, 6)}
+    picture {File.new("#{Rails.root}/app/assets/photos/#{1+rand(12)}.jpeg")}
   end
 end
