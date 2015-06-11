@@ -308,19 +308,7 @@ thead {
   }
 }
 
-/* notification */
-
-.notification {
-  color: grey;
-  font-size: 20px
-}
-
-/* suggestion */
-
-.suggestion {
-  color: violet;
-  font-size: 25px;
-}
+/* blank divs */
 
 .blank1 {
   height: 100px;
@@ -328,6 +316,24 @@ thead {
 
 .blank2 {
   height: 15px;
+}
+
+.blank3 {
+  height: 400px;
+}
+
+/* notification */
+
+.warning {
+  color: grey;
+  border-radius:10px;
+  font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+  padding:10px 36px;
+  display: none;
+  background:#fff8c4 10px 50%;
+  border:1px solid #f2c779;
+  font-size: 18px;
+  text-align: center;
 }
 
 hr {

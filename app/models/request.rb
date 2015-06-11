@@ -5,9 +5,8 @@ class Request < ActiveRecord::Base
 
   enum status: [:pending, :accepted, :rejected]
 
-  private
   def set_default_status
-    self.status ||= :pending  
+    self.status ||= :pending
   end
 
   Settings.request.states.each do |method|
