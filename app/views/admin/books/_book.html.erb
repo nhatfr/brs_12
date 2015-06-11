@@ -3,7 +3,6 @@
   <td><%= book.author %></td>
   <td><%= book.description %></td>
   <td><%= image_tag book.picture.url if book.picture? %></td>
-  <td><%= book.rating %></td>
   <td>
     <%= link_to t(:details), admin_book_path(book),
                              class: "btn btn-success" %>

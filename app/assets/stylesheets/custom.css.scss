@@ -216,9 +216,10 @@ span.picture {
 /* Some buttons */
 
 .btn-favorite {
-  width: 100px;
+  width: 90px;
   background-color: DarkOrange;
   color: Navy;
+
   &:hover {
     background-color: DarkOrange;
     color: Navy;
@@ -226,7 +227,7 @@ span.picture {
 }
 
 .btn-unfavorite {
-  width: 100px;
+  width: 90px;
   background-color: SlateGray;
   &:hover {
     background-color: SlateGray;
@@ -255,7 +256,7 @@ span.picture {
 }
 
 .btn-read {
-  width: 80px;
+  width: 90px;
   background-color: Peru;
   color: DarkGreen;
   &:hover {
@@ -265,7 +266,7 @@ span.picture {
 }
 
 .btn-reading {
-  width: 80px;
+  width: 90px;
   background-color: LightGreen;
   color: Blue;
   &:hover {
@@ -275,7 +276,7 @@ span.picture {
 }
 
 .btn-unread {
-  width: 80px;
+  width: 90px;
   background-color: SlateGray;
   &:hover {
     background-color: SlateGray;
@@ -290,6 +291,10 @@ span.picture {
   text-align: center;
 }
 
+.center_td {
+  text-align: center;
+}
+
 thead {
   height: 40px;
 }
@@ -301,4 +306,36 @@ thead {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
+}
+
+/* notification */
+
+.notification {
+  color: grey;
+  font-size: 20px
+}
+
+/* suggestion */
+
+.suggestion {
+  color: violet;
+  font-size: 25px;
+}
+
+.blank1 {
+  height: 100px;
+}
+
+.blank2 {
+  height: 15px;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
 }

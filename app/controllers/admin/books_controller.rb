@@ -5,7 +5,7 @@ class Admin::BooksController < ApplicationController
   def index
     @books = @books.order_by_created_at
                    .paginate page: params[:page],
-                             per_page: Settings.books_per_page_size
+                             per_page: Settings.books_per_page
   end
 
   def show
@@ -32,6 +32,7 @@ class Admin::BooksController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update

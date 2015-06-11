@@ -6,12 +6,13 @@ class BooksController < ApplicationController
     
     @books = @search.result(distinct: true).order_by_created_at
                .paginate page: params[:page],
-                         per_page: Settings.paginate.per_page
+                         per_page: Settings.paginate.books_per_page
   end
 
   def show
     @review = @book.reviews.new
     @reviews = Review.order_by_created_at
                      .paginate page: params[:page], per_page: Settings.reviews_per_page
+    @books = Book.random_books
   end
 end

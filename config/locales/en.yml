@@ -57,6 +57,17 @@ en:
   content_rate: "Your rate for content of this book"
   design_content: "Your rate for design of this book"
   cancel_vote: "Cancel this vote!"
+  login_suggestion: "If you want to do something related to any book, please "
+  rating_suggestion: "Please rate this book to let us know your feeling about it :)"
+  here: "here"
+  _login: "login"
+  first: " first"
+  by: " by "
+  user: " user(s)"
+  product_details: "Product Details"
+  related_book: "Books you may also concern"
+  about_this_book: "About this book"
+
   new_feed: "New feeds"
 
   unread_button: "Unread"

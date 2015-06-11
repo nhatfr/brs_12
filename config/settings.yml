@@ -15,6 +15,10 @@ actions:
 book:
   read: read
   reading: reading
+
+books_per_row: 4
+
+number_of_random_books: 4
   
 rate:
   content: content
@@ -37,5 +41,5 @@ request:
 
 paginate:
   per_page: 10
-  books_per_page_size: 10
+  books_per_page: 12
   reviews_per_page: 10

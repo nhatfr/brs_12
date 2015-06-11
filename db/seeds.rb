@@ -17,4 +17,3 @@ puts "create reviews"
 
 puts "Create requests"
 10.times {FactoryGirl.create :request}
-
