@@ -1,8 +1,11 @@
-<%= form_for [:admin, @review, @review.comments.build] do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: t(:new_comment) %>
-    <%= f.hidden_field :book_id %>
-  </div>
-  <%= f.submit t(:post), class: "btn btn-primary" %>
+
+<%= form_for [review, review.comments.build] do |f|%>
+
+  <%= f.text_area :content, placeholder: t(:new_comment) %>
+
+  <%= f.hidden_field :review_id, value: review.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <% debugger %>
+
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>

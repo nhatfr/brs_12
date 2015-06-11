@@ -1,40 +1,8 @@
-<h1><i><%= @book.title %></i></h1>
-
-<div class="row">
-  <div class="small-2 large-2 columns">
-    <%= imdb_style_rating_for @book, current_user%>
-  </div>
-  <br>
-  <div class="small-2 large-4 columns">
-    <% if current_user %>
-      <big><big><big><%= t :content %></big></big></big>
-      <%= rating_for @book, Settings.rate.content, disable_after_rate: false, enable_half: true,
-        cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
-        target: "#hintDiv1", targetText: t(:content_rate), targetType: Settings.rate.type.score %>
-      <div id="hintDiv1"></div>
-      <br>
-      <big><big><big><%= t :design %></big></big></big>
-      <%= rating_for @book, Settings.rate.design, disable_after_rate: false, enable_half: true,
-        cancel_place: Settings.place.right, cancel_hint: t(:cancel_vote), imdb_avg: true,
-        target: "#hintDiv2", targetText: t(:design_content), targetType: Settings.rate.type.score %>
-      <div id="hintDiv2"></div>
-    <% end %>
-  </div>
+<%= render @book %>
+<div class="col-md-4">
+  <%= render "reviews/review_form" %>
 </div>
-
-<h1><%= t :all_reviews %></h1>
-
-<% if user_signed_in? && !current_user.admin? %>
-  <p>
-    <section class="review_form">
-      <%= render "shared/review_form" %>
-    </section>
-  </p>
-<% end %>
-
-<hr/>
-
-<ol class="reviews">
-  <%= render @reviews %>
-</ol>
-<%= will_paginate @reviews %>
+  <div class="col-md-8">
+    <h3><%=t :reviews %></h3>
+    <%= render @book.reviews %>
+  </div>

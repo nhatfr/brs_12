@@ -15,6 +15,10 @@ puts "Create books"
 puts "create reviews"
 10.times {FactoryGirl.create :review}
 
+puts "create comments"
+
+20.times {FactoryGirl.create :comment}
+
 puts "Create requests"
 10.times {FactoryGirl.create :request}
 

@@ -1,28 +1,9 @@
-<tr id="book_<%= book.id %>" class="success">
-  <td><%= book.title %></td>
-  <td><%= book.author %></td>
-  <td><%= book.description %></td>
-  <td><%= image_tag book.picture.url if book.picture? %></td>
-  <td>
-    <%= t :content %> <%= RatingCache.content_rate(book).first.try(:avg) %><br>
-    <%= t :design %> <%= RatingCache.design_rate(book).first.try(:avg) %>
-  </td>
-  <td>
-    <div id="favorite-<%= book.id %>" data-no-turbolink="true">
-      <% unless current_user.nil? %>
-        <% unless current_user.favorite? book %>
-          <%= render "perusals/favorite", book: book %>
-        <% else %>
-          <%= render "perusals/unfavorite", book: book %>
-        <% end %>
-      <% end %>
-    </div>
-  </td>
-  <td>
-    <div id="reading-<%= book.id %>">
-      <% unless current_user.nil? %>
-        <%= render "readings/reading", book: book %>
-      <% end %>
-    </div>
-  </td>
-</tr>
+<div class="col-md-4" data-no-turbolink="true">
+  <%= image_tag book.picture.url %>
+</div>
+<div class="col-md-8" data-no-turbolink="true">
+  <li><%= t :title %> : <%= book.title %></li>
+  <li><%= t :author %> : <%= book.author %></li>
+  <li><%= t :description %> : <%=book.description %></li>
+  <li> <%= t :rating %> : <%= book.rating %>
+</div>

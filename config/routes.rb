@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   end
 
   resources :books, except: [:new, :create, :destroy] do
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews
   end
 
   resources :reviews, only: [:create, :destroy] do
-    resources :comments, only: [:create, :destroy]
+    resources :comments
   end
 
   devise_scope :user do

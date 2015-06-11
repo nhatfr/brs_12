@@ -15,5 +15,6 @@ class BooksController < ApplicationController
     @review = @book.reviews.new
     @reviews = Review.order_by_created_at
                      .paginate page: params[:page], per_page: Settings.reviews_per_page
+    @comment = @reviews.new
   end
 end
