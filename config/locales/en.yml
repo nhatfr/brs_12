@@ -57,7 +57,7 @@ en:
   content_rate: "Your rate for content of this book"
   design_content: "Your rate for design of this book"
   cancel_vote: "Cancel this vote!"
-  login_suggestion: "If you want to do something related to any book, please "
+  login_suggestion: "If you want to do something related to this book, please "
   rating_suggestion: "Please rate this book to let us know your feeling about it :)"
   here: "here"
   _login: "login"

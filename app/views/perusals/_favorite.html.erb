@@ -1,2 +1,6 @@
-<%= link_to t(:favorite), perusals_path(book_id: @book.id), method: :post,
-  remote: current_user.nil? ? false : true, class: "btn btn-primary btn-favorite" %>
+<% unless current_user.nil? %>
+  <%= link_to t(:favorite), perusals_path(book_id: @book.id), method: :post,
+    remote: true, class: "btn btn-primary btn-favorite" %>
+<% else %>
+  <%= link_to t(:favorite), "#", class: "btn btn-primary btn-favorite login_notification" %>
+<% end %>

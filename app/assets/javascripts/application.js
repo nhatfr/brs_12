@@ -26,3 +26,12 @@ $(document).ajaxError(function(event, xhr, options, exc) {
   er += "</ul>"
   $("#error_explanation").html(er);
 });
+
+$(document).ready(function() {
+  $(".login_notification").click(function() {
+    $(".warning").show(750);
+    $("#blank3").ScrollTo({
+      duration: 1500
+    });
+  });
+});
