@@ -10,9 +10,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @review = @book.reviews.new
-    @reviews = Review.order_by_created_at
-                     .paginate page: params[:page], per_page: Settings.reviews_per_page
+    @reviews = @book.reviews.order_by_created_at
     @books = Book.random_books
   end
 end

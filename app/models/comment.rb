@@ -1,7 +1,11 @@
 class Comment < ActiveRecord::Base
   include ActivityLogs
+
   belongs_to :user
   belongs_to :review
+
+  validates :content, presence: true
+
   after_create :log_action_comment
   before_destroy :log_action_delete_comment
 

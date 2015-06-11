@@ -80,4 +80,8 @@ class User < ActiveRecord::Base
   def read? book
     Reading.where(user: self, book: book, status: Settings.statuses.read).count > 0
   end
+
+  def already_reviewed? book
+    Review.where(user: self, book: book).count > 0
+  end
 end

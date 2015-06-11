@@ -4,7 +4,16 @@ class CommentsController < ApplicationController
   def create
     review = Review.find params[:review_id]
     @comment = review.comments.build comment_params
-    @comment.user_id = current_user.id
+    @comment.user = current_user
+    if @comment.save
+      flash[:success] = t :success
+    else
+      flash[:danger] = t :fail
+    end
+    redirect_to review.book
+  end
+
+  def update
     if @comment.save
       flash[:success] = t :success
     else

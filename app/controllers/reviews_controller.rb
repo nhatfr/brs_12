@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   load_and_authorize_resource
   
   def create
-    @review = current_user.reviews.build review_params
+    @review.user = current_user
     if @review.save
       flash[:success] = t :success
     else
@@ -11,8 +11,13 @@ class ReviewsController < ApplicationController
     redirect_to @review.book
   end
 
-  def show
-    @comment = @review.comments.new
+  def update
+    if @review.save
+      flash[:success] = t :success
+    else
+      flash[:danger] = t :fail
+    end
+    redirect_to review.book
   end
 
   def destroy
@@ -26,6 +31,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit :content, :book_id
+    params.require(:review).permit :thesis_statement, :content, :book_id
   end
 end
