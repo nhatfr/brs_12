@@ -1,3 +1,4 @@
 $("#reviews").append("<%= j render (@review) %>");
 $(".review-thesis-statement-<%= @book.id %>").attr("placeholder", "Type the thesis statement here..").val("");
 $(".review-content-<%= @book.id %>").attr("placeholder", "Type the content here..").val("");
+$(".your-review").fadeOut();

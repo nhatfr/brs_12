@@ -6,6 +6,7 @@ class Perusal < ActiveRecord::Base
   before_save :log_action_favorite_a_book
   before_destroy :log_action_unfavorite_a_book
 
+  private
   def log_action_favorite_a_book
     create_activity Activity.actions[:favorite], book_id, user_id
   end
