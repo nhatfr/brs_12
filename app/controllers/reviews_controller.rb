@@ -3,30 +3,38 @@ class ReviewsController < ApplicationController
   
   def create
     @review.user = current_user
-    if @review.save
-      flash[:success] = t :success
-    else
-      flash[:danger] = t :fail
+    @book = @review.book
+    respond_to do |format|
+      if @review.save
+        format.json {head :no_content}
+        format.js
+      else
+        format.json {render json: @review.errors.full_messages,
+                            status: :unprocessable_entity}
+      end
     end
-    redirect_to @review.book
+  end
+
+  def edit
+    @book = @review.book
   end
 
   def update
-    if @review.save
+    if @review.update! review_params
       flash[:success] = t :success
     else
       flash[:danger] = t :fail
     end
-    redirect_to review.book
+    redirect_to @review.book
   end
 
   def destroy
-    if @review.destroy
-      flash[:success] = t :success
-    else
-      flash[:fail] = t :fail
+    @book = @review.book
+    @review.destroy
+    respond_to do |format|
+      format.js
+      format.json {head :no_content}
     end
-    redirect_to @review.book
   end
 
   private

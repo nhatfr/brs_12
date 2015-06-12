@@ -1,13 +1,13 @@
-<div class="col-md-11">
+<div class="col-md-11 comment_<%= comment.id %>">
   <span><%= link_to comment.user.email, user_path(comment.user) %></span>
   &#58;&nbsp;&nbsp;&nbsp;
   <span class="text-justify"><%= comment.content %></span>
 </div>
 
-<div class="col-md-1">
+<div class="col-md-1 comment_<%= comment.id %>">
   <% unless current_user.nil? %>
     <% if current_user == comment.user || current_user.admin? %>
-      <%= link_to review_comment_path(comment, review_id: comment.review.id), method: :delete do %>
+      <%= link_to review_comment_path(comment, review_id: comment.review.id), method: :delete, remote: true do %>
         <span class="glyphicon glyphicon-remove pull-right"></span>
       <% end %>
     <% end %>

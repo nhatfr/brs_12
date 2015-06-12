@@ -2,33 +2,30 @@ class CommentsController < ApplicationController
   load_and_authorize_resource
 
   def create
-    review = Review.find params[:review_id]
-    @comment = review.comments.build comment_params
+    @review = Review.find params[:review_id]
+    @comment = @review.comments.build comment_params
     @comment.user = current_user
-    if @comment.save
-      flash[:success] = t :success
-    else
-      flash[:danger] = t :fail
+
+    respond_to do |format|
+      if @comment.save
+        format.json {head :no_content}
+        format.js
+      else
+        format.json {render json: @comment.errors.full_messages,
+                            status: :unprocessable_entity}
+      end
     end
-    redirect_to review.book
   end
 
   def update
-    if @comment.save
-      flash[:success] = t :success
-    else
-      flash[:danger] = t :fail
-    end
-    redirect_to review.book
   end
 
   def destroy
-    if @comment.destroy
-      flash[:success] = t :success
-    else
-      flash[:fail] = t :fail
+    @comment.destroy
+    respond_to do |format|
+      format.js
+      format.json {head :no_content}
     end
-    redirect_to @comment.review.book
   end
 
   private

@@ -371,9 +371,9 @@ hr {
   text-align: justify;
 }
 
-.padding-left-40 {
-  padding-left: 40px;
-}
+.dropdown:hover .dropdown-menu {
+    display: block;
+ }
 
 .padding-left-50 {
   padding-left: 50px; 

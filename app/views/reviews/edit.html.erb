@@ -1,0 +1,13 @@
+<div class="col-md-6">
+  <%= form_for [@book, @review] do |f| %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+
+    <%= f.label :thesis_statement %>
+    <%= f.text_field :thesis_statement, class: "form-control review-thesis-statement-#{@book.id}" %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control review-content-#{@book.id}" %>
+
+    <%= f.submit t(:submit), class: "btn btn-primary col-md-2" %>
+  <% end %>
+</div>

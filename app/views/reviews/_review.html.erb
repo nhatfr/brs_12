@@ -1,39 +1,45 @@
-<div class="both-clear">
-  <br>
-  <div class="col-md-11">
-    <p class="text-justify"><b><%= review.thesis_statement %></b></p>
-  </div>
-  <div class="col-md-1">
-    <% unless current_user.nil? %>
-      <% if current_user == review.user %>
-        <%= link_to review_path(review), method: :patch do %>
-          <span class="glyphicon glyphicon-edit padding-left-40"></span>
+<div class="review_<%= review.id %>">
+  <div class="col-md-12">
+    <br>
+    <div class="col-md-11">
+      <p class="text-justify"><b><%= review.thesis_statement %></b></p>
+    </div>
+    <div class="col-md-1">
+      <% unless current_user.nil? %>
+        <% if current_user == review.user %>
+          <%= link_to edit_book_review_path(review, book_id: review.book.id) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+        <% end %>
+        <% if current_user == review.user || current_user.admin? %>
+          <%= link_to review_path(review), method: :delete, remote: true do %>
+            <span class="glyphicon glyphicon-remove pull-right"></span>
+          <% end %>
         <% end %>
       <% end %>
-      <% if current_user == review.user || current_user.admin? %>
-        <%= link_to review_path(review), method: :delete do %>
-          <span class="glyphicon glyphicon-remove pull-right"></span>
-        <% end %>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 
   <div class="col-md-12 both-clear">
-    <p>
-      <span><%= t :by %> <%= link_to review.user.email, user_path(review.user) %></span>
-    </p>
-    <p class="text-justify"><%= review.content %></p>
+    <div class="col-md-12">
+      <p>
+        <span><%= t :by %> <%= link_to review.user.email, user_path(review.user) %></span>
+      </p>
+      <p class="text-justify"><%= review.content %></p>
+    </div>
   </div>
 
-  <div class="col-md-12 both-clear padding-left-50 padding-right-50">
+  <div class="col-md-12 both-clear padding-left-50 padding-right-50" id="comments_of_review_<%= review.id %>">
     <%= render partial: "comments/comment", collection: review.comments, as: :comment %>
   </div>
 
   <div class="col-md-12 both-clear padding-left-50 padding-right-50">
     <br>
     <% unless current_user.nil? %>
-      <div class="col-md-12">
-        <%= render "comments/form", review: review %>
+      <div class="col-md-12 comment-form-<%= review.id %>">
+        <div id="comment-form-<%= review.id %>">
+          <%= render "comments/form", review: review %>
+        </div>
       </div>
     <% else %>
       <div class="col-md-12">
