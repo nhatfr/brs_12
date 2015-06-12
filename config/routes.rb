@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post "/rate" => "rater#create", as: "rate"
+  get "/users/:user_id/:type" => "relationships#index", as: :friendship
   devise_for :users
 
   root to: "books#index"

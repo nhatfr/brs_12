@@ -10,7 +10,7 @@ class Ability
       can :update, User, id: user.id
       can :read, Book
       can :read, User
-      can [:create, :destroy], Relationship
+      can [:create, :destroy, :read], Relationship
       can [:create, :destroy], Perusal
       can [:create, :destroy], Like
       can :manage, Reading

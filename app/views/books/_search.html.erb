@@ -1,11 +1,11 @@
 <%= search_form_for @search, as: :book_search do |f| %>
   <tr>
     <td>
-      <%= f.label t(:title_contains) %>
-      <%= f.search_field :title_cont %>
+      <%= f.label :search_by_title %>
+      <%= f.search_field :title_cont %> 
     </td>
     <td>
-      <%= f.label t(:author_contains) %>
+      <%= f.label :search_by_author %>
       <%= f.search_field :author_cont %>
     </td>
   </tr>
