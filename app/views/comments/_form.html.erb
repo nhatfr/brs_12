@@ -1,4 +1,4 @@
-<%= form_for [review, review.comments.new] do |f| %>
-  <%= f.text_field :content, class: "form-control", placeholder: t(:comment_placeholder) %>
+<%= form_for [review, review.comments.new], remote: true do |f| %>
+  <%= f.text_field :content, class: "form-control comment-content-#{review.id}", placeholder: t(:comment_placeholder) %>
   <%= f.submit t(:comment), class: "btn btn-primary col-md-1" %>
 <% end %>

@@ -1,0 +1,2 @@
+$("#comments_of_review_<%= @review.id %>").append("<%= j render (@comment) %>");
+$(".comment-content-<%= @review.id %>").attr("placeholder", "Type your comment here..").val("");

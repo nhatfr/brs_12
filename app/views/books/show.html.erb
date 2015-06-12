@@ -85,11 +85,9 @@
   <div class="blank2 row">
   </div>
 
-  <div class="row">
+  <div class="row" id="reviews">
     <p class="blue-violet"><big><big><%= t :customer_reviews %></big></big></p>
-    <div>
-      <%= render partial: "reviews/review", collection: @reviews, as: :review %>
-    </div>
+    <%= render partial: "reviews/review", collection: @reviews, as: :review %>
   </div>
 
   <% unless current_user.nil? || current_user.already_reviewed?(@book) %>
