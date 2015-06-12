@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-md-8">
-      <p><strong><b><big><big><%= @book.title %></big></big></b></strong></p>
+      <p><strong><b><big><big><big><%= @book.title %></big></big></big></b></strong></p>
       <p>-- <%= link_to @book.author, "#" %> --</p>
       <% unless current_user.nil? %>
         <div>
@@ -45,7 +45,7 @@
         </div>
       <% end %>
       <br><hr>
-      <p><big><%= t :about_this_book %></big></p>
+      <p class="blue-violet"><big><big><%= t :about_this_book %></big></big></p>
       <p><%= @book.description %></p>
     </div>
 
@@ -57,7 +57,7 @@
   </div>
 
   <div class="row" data-no-turbolink="true">
-    <p><big><%= t :related_book %></big></p>
+    <p class="blue-violet"><big><big><%= t :related_book %></big></big></p>
     <table class="table">
       <tr>
         <% @books.each do |book| %>
@@ -78,19 +78,50 @@
   </div>
 
   <div class="row">
-    <p><big><%= t :product_details %></big></p>
+    <p class="blue-violet"><big><big><%= t :product_details %></big></big></p>
   </div>
 
   <br><hr>
   <div class="blank2 row">
   </div>
 
-  <div class="warning row">
-    <p><%= t :login_suggestion %><big><big><%= link_to t(:_login), login_path %></big></big><%= t :first %></p>
+  <div class="row">
+    <p class="blue-violet"><big><big><%= t :customer_reviews %></big></big></p>
+    <div>
+      <%= render partial: "reviews/review", collection: @reviews, as: :review %>
+    </div>
+  </div>
+
+  <% unless current_user.nil? || current_user.already_reviewed?(@book) %>
+    <br><hr>
+    <div class="blank2 row">
+    </div>
+
+    <div class="row">
+      <p class="blue-violet"><big><big><%= t :your_review %></big></big></p>
+      <div class="col-md-12 padding-left-50">:
+        <div class="col-md-6">
+          <%= render "reviews/form" %>
+        </div>
+      </div>
+    </div>
+    <br>
+  <% end %>
+
+  <br><hr>
+  <div class="blank2 row">
+  </div>
+
+  <div class="suggestion row">
+    <p>
+      <%= t :please %>
+      &nbsp;
+      <big><big><%= link_to t(:_login), login_path %></big></big>
+      <%= t :login_suggestion %>
+    </p>
   </div>
   <br>
 
   <div class="blank3 row" id="blank3">
   </div>
-
 </div>

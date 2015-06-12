@@ -155,12 +155,13 @@ ActiveRecord::Schema.define(version: 20150609074833) do
   add_index "requests", ["user_id"], name: "index_requests_on_user_id"
 
   create_table "reviews", force: :cascade do |t|
+    t.string   "thesis_statement"
     t.text     "content"
     t.integer  "user_id"
     t.integer  "book_id"
     t.float    "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "reviews", ["book_id", "created_at"], name: "index_reviews_on_book_id_and_created_at"

@@ -29,7 +29,7 @@ $(document).ajaxError(function(event, xhr, options, exc) {
 
 $(document).ready(function() {
   $(".login_notification").click(function() {
-    $(".warning").show(750);
+    $(".warning").show(2000);
     $("#blank3").ScrollTo({
       duration: 1500
     });

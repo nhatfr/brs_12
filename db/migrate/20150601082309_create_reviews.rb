@@ -1,6 +1,7 @@
 class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
+      t.string :thesis_statement
       t.text :content
       t.references :user, index: true, foreign_key: true
       t.references :book, index: true, foreign_key: true

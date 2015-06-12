@@ -1,10 +1,21 @@
-<ul>
-  <h3 class="content"><%= comment.content %></h3>
-  <h4><%= comment.user.email %></h4>
-  <h4><%= comment.book.title %></h4>
-  <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
-  <%= link_to t(:delete), admin_book_review_path(review.book.id, review.id),
-                          method: :delete, data: {confirm: t(:confirm)},
-                          class: "btn btn-danger" %>
-  <hr/>
-</ul>
+<div class="col-md-11">
+  <span><%= link_to comment.user.email, user_path(comment.user) %></span>
+  &#58;&nbsp;&nbsp;&nbsp;
+  <span class="text-justify"><%= comment.content %></span>
+</div>
+
+<div class="col-md-1">
+  <% unless current_user.nil? %>
+    <% if current_user == comment.user || current_user.admin? %>
+      <%= link_to review_comment_path(comment, review_id: comment.review.id), method: :delete do %>
+        <span class="glyphicon glyphicon-remove pull-right"></span>
+      <% end %>
+    <% end %>
+
+    <% if current_user == comment.user %>
+      <%= link_to review_comment_path(comment, review_id: comment.review.id), method: :patch do %>
+        <span class="glyphicon glyphicon-edit"></span>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

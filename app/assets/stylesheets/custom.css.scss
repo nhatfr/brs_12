@@ -324,14 +324,15 @@ thead {
 
 /* notification */
 
-.warning {
+.suggestion {
   color: grey;
-  border-radius:10px;
-  font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
-  padding:10px 36px;
+  border-radius: 10px;
+  font-family: Tahoma, Geneva, Arial, sans-serif;
+  font-size: 11px;
+  padding: 10px 36px;
   display: none;
-  background:#fff8c4 10px 50%;
-  border:1px solid #f2c779;
+  background: #fff8c4 10px 50%;
+  border: 1px solid #f2c779;
   font-size: 18px;
   text-align: center;
 }
@@ -344,4 +345,40 @@ hr {
   margin-right: auto;
   border-style: inset;
   border-width: 1px;
+}
+
+.blue-violet {
+  color: BlueViolet;
+}
+
+.indent1 {
+  text-indent: 15px;
+}
+
+.indent2 {
+  text-indent: 40px;
+}
+
+.both-clear {
+  clear: both;
+}
+
+.btn-add-a-comment {
+  margin-left: 15px;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.padding-left-40 {
+  padding-left: 40px;
+}
+
+.padding-left-50 {
+  padding-left: 50px; 
+}
+
+.padding-right-50 {
+  padding-right: 50px; 
 }

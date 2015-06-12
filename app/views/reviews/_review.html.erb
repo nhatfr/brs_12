@@ -1,41 +1,44 @@
-<ul>
-  <h3 class="content"><%= review.content %></h3>
-  <h4><%= review.user.email %></h4>
-  <h4><%= review.book.title %></h4>
-  <h4 class="timestamp"><%= time_ago_in_words(review.created_at) %></h4>
-  <% if current_user == review.user  %>
-    <%= link_to t(:delete), book_review_path(review.book.id, review.id),
-                            method: :delete, data: {confirm: t(:confirm)},
-                            class: "btn btn-danger" %>
-  <% elsif current_user.admin? %>
-    <%= link_to t(:delete), [:admin, review],
-                            method: :delete, data: {confirm: t(:confirm)},
-                            class: "btn btn-danger" %>
-  <% end %>
-  <h3><u>Comments</u></h3>
-  <ul>
-    <% review.comments.each do |comment| %>
-      <h4><%= comment.content %></h4>
-      <h5><%= comment.user.email %></h5>
-      <h5 class="timestamp"><%= time_ago_in_words(comment.created_at) %></h5>
-      <% if current_user == comment.user %>
-        <%= link_to t(:delete), review_comment_path(review.id, comment),
-                                method: :delete, data: {confirm: t(:confirm)},
-                                class: "btn btn-danger" %>
-      <% elsif current_user.admin? %>
-        <%= link_to t(:delete), [:admin, comment],
-                                method: :delete, data: {confirm: t(:confirm)},
-                                class: "btn btn-danger" %>
+<div class="both-clear">
+  <br>
+  <div class="col-md-11">
+    <p class="text-justify"><b><%= review.thesis_statement %></b></p>
+  </div>
+  <div class="col-md-1">
+    <% unless current_user.nil? %>
+      <% if current_user == review.user %>
+        <%= link_to review_path(review), method: :patch do %>
+          <span class="glyphicon glyphicon-edit padding-left-40"></span>
+        <% end %>
       <% end %>
-      <hr/>
+      <% if current_user == review.user || current_user.admin? %>
+        <%= link_to review_path(review), method: :delete do %>
+          <span class="glyphicon glyphicon-remove pull-right"></span>
+        <% end %>
+      <% end %>
     <% end %>
-  </ul>
-  <% if user_signed_in? && !current_user.admin? %>
+  </div>
+
+  <div class="col-md-12 both-clear">
     <p>
-      <section class="comment_form">
-        <%= render "shared/comment_form", review: review %>
-      </section>
+      <span><%= t :by %> <%= link_to review.user.email, user_path(review.user) %></span>
     </p>
-  <% end %>
-  <hr/>
-</ul>
+    <p class="text-justify"><%= review.content %></p>
+  </div>
+
+  <div class="col-md-12 both-clear padding-left-50 padding-right-50">
+    <%= render partial: "comments/comment", collection: review.comments, as: :comment %>
+  </div>
+
+  <div class="col-md-12 both-clear padding-left-50 padding-right-50">
+    <br>
+    <% unless current_user.nil? %>
+      <div class="col-md-12">
+        <%= render "comments/form", review: review %>
+      </div>
+    <% else %>
+      <div class="col-md-12">
+        <%= link_to t(:leave_a_comment), "#", class: "btn btn-primary login_notification" %>
+      </div>
+    <% end %>
+  </div>
+</div>

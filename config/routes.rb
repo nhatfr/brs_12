@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:create, :destroy] do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :update, :destroy]
   end
 
   devise_scope :user do
