@@ -79,6 +79,7 @@
 
   <div class="row">
     <p class="blue-violet"><big><big><%= t :product_details %></big></big></p>
+    <%= render "books/details", book: @book %>
   </div>
 
   <br><hr>
@@ -92,18 +93,18 @@
 
   <% unless current_user.nil? || current_user.already_reviewed?(@book) %>
     <br><hr>
-    <div class="blank2 row">
-    </div>
+    <div class="your-review row">
+      <div class="blank2 col-md-12">
+      </div>
 
-    <div class="row">
       <p class="blue-violet"><big><big><%= t :your_review %></big></big></p>
       <div class="col-md-12 padding-left-50">:
         <div class="col-md-6">
           <%= render "reviews/form" %>
         </div>
       </div>
+      <br>
     </div>
-    <br>
   <% end %>
 
   <br><hr>

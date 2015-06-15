@@ -60,11 +60,6 @@ class User < ActiveRecord::Base
     record.update status: Reading.statuses[status]
   end
 
-  def read book, status
-    record = Reading.find_or_initialize_by user: self, book: book
-    record.update status: Reading.statuses[status]
-  end
-
   def unread book
     Reading.find_by(user: self, book: book).destroy
   end
