@@ -20,6 +20,12 @@ gem "turbolinks"
 gem "jbuilder"
 gem "ratyrate"
 
+group :test do
+  gem "capybara"
+  gem "guard-rspec"
+  gem "launchy"
+end
+
 group :development, :test do
   gem "sqlite3"
   gem "byebug"
@@ -27,6 +33,7 @@ group :development, :test do
   gem "spring"
   gem "faker"
   gem "factory_girl_rails"
+  gem "rspec-rails"
 end
 
 group :production do
