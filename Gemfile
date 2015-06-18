@@ -6,7 +6,6 @@ gem "mini_magick"
 gem "carrierwave"
 gem "devise"
 gem "cancancan"
-gem "ransack"
 gem "rails_config"
 gem "bcrypt"
 gem "will_paginate"
@@ -34,6 +33,13 @@ group :development, :test do
   gem "faker"
   gem "factory_girl_rails"
   gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "capybara"
+  gem "rspec-collection_matchers"
+  gem "rspec-activemodel-mocks"
+  gem "ransack"
+  gem "cucumber-rails", require: false
+  gem "database_cleaner"
 end
 
 group :production do
